@@ -9,7 +9,15 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+<<<<<<< HEAD
     "test": "\"echo \"Error: no test specified\" && exit 1\""
+=======
+    "test": "\"echo \"Error: no test specified\" && exit 1\"",
+    "build:ui": "rm -rf build && cd ../FullstackOpen/part2/phonebook && npm run build && cp -r build ../part3_phonebook_backend",
+    "deploy":"git push heroku master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
+    "logs:prod": "heroku logs --tail"
+>>>>>>> fc7190962993836b89d04a5a2655414680299550
   },
   "keywords": [
     "\"\""
