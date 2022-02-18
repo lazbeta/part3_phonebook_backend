@@ -11,8 +11,8 @@
     "dev": "nodemon index.js",
     "test": "\"echo \"Error: no test specified\" && exit 1\"",
     "build:ui": "rm -rf build && cd ../FullstackOpen/part2/phonebook && npm run build && cp -r build ../part3_phonebook_backend",
-    "deploy":"git push heroku master",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
+    "deploy": "git push heroku master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
     "logs:prod": "heroku logs --tail"
   },
   "keywords": [
@@ -23,6 +23,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "mongoose": "^6.2.2",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
