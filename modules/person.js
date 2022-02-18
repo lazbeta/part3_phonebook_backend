@@ -1,22 +1,33 @@
-/*const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
-if (process.argv.length < 3 ) {
-    console.log('give pass')
-    process.exit(1)
-}
+const mongoUrl = process.env.MONGODB_URI
 
-const password = process.argv[2]
-
-const mongoUrl = `mongodb+srv://fullstackPhonebook:${password}@cluster0.spc5a.mongodb.net/Phonebook?retryWrites=true&w=majority`
-mongoose.connect(mongoUrl, {useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongoUrl)
+    .then(result => {
+        console.log('connecting to mongo!')
+    })
+    .catch((error) => {
+        console.log('error connecting to Mongo', error.message)
+    })
 
 const personSchema = new mongoose.Schema({
     name: String,
     number: String,
 })
 
-const Person = mongoose.model('Person', personSchema)
-if (process.argv.length === 3){
+
+personSchema.set('toJSON', {
+    transform: (document, returnedObject) => {
+        returnedObject.id = returnedObject._id.toString()
+        delete returnedObject._id
+        delete returnedObject.__v
+    }
+})
+
+module.exports = mongoose.model('Person', personSchema)
+
+
+/*if (process.argv.length === 3){
     Person.find({}).then(result => {
         console.log("Phonebook:")
         result.forEach(person => {
@@ -34,6 +45,4 @@ if (process.argv.length === 3){
         console.log(` ${process.argv[3]} was added to the phonebook`)
         mongoose.connection.close()
         })
-        }
-
-        */
+        } */
