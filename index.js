@@ -43,10 +43,10 @@ app.get('/api/persons/:id', (request, response) => {
 app.post ('/api/persons', (request, response) => {
     const body = request.body
 
-    const person = {
+    const person = new Person ({
         name: body.name,
         number: body.number,
-    }
+    })
   
     /*  const noDuplicates = persons.find(p => p.name === body.name)
     else if (noDuplicates) {
