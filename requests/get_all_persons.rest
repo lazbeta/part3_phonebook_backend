@@ -1,12 +1,7 @@
-POST http://localhost:3001/api/persons/ HTTP/1.1
-content-Type: application/json
+POST http://localhost:3001/api/persons
+Content-Type: application/json
 
 {
-    "name": "Post Rest", 
-    "number": "44337998"
+    "name":"jj",
+    "number":"99"
 }
-
-###
-
-GET http://localhost:3001/api/persons/ HTTP/1.1
-content-Type: application/json
