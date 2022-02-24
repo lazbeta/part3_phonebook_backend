@@ -13,7 +13,8 @@
     "build:ui": "rm -rf build && cd ../FullstackOpen/part2/phonebook && npm run build && cp -r build ../part3_phonebook_backend",
     "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
-    "logs:prod": "heroku logs --tail"
+    "logs:prod": "heroku logs --tail",
+    "lint": "eslint ."
   },
   "keywords": [
     "\"\""
@@ -29,6 +30,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "eslint": "^8.9.0",
     "nodemon": "^2.0.15"
   }
 }
