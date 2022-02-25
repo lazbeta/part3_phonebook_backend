@@ -84,7 +84,7 @@ app.put('/api/persons/:id', (request, response, next) => {
     .then(updatedPerson => {
       response.json(updatedPerson.toJSON())
     })
-    .catch((error) => next(error))
+    .catch(error => next(error))
 })
 
 const unknownEndpoint = (request, response) => {
